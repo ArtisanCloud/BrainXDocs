@@ -135,7 +135,7 @@ tool_node = ToolNode(tools)
 from langchain_openai import ChatOpenAI
 
 temperature = 0.5
-streaming = True
+streaming = False
 
 # We will set streaming=True so that we can stream tokens
 # See the streaming section for more information on this.
@@ -155,11 +155,11 @@ model = ChatOpenAI(
 我们可以通过将 LangChain 工具转换为适用于 OpenAI 函数调用的格式，然后将它们绑定到模型类来实现这一点
 
 ```python
-bound_model = model.bind_tools(tools)
+model = model.bind_tools(tools)
 
 ```
 
-## 定义工作流程图
+## 定义节点
 
 现在我们需要在我们的流程图中定义几个不同的节点。在 langgraph 中，一个节点可以是一个函数function或可运行runnable的对象。对于这个任务，我们需要两个主要的节点：
 
@@ -200,6 +200,7 @@ def call_model(state: State):
     return {"messages": response}
 ```
 
+## 定义流程图
 现在我们可以把所有的东西放在一起，定义图了！
 
 ```python
