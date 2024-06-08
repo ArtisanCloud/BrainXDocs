@@ -125,14 +125,12 @@ streaming = False
 # We will set streaming=True so that we can stream tokens
 # See the streaming section for more information on this.
 llm_name = 'gpt-3.5-turbo'
-OPENAI_API_BASE="https://api.chatanywhere.tech"
-OPENAI_API_KEY="sk-yGj9jNFjm23RJXYLelamBEZCsLRqHLPECmuEdbdV1Y6R2sK9"
+OPENAI_API_KEY="YOU_OPENAPI_KEY"
 
 model = ChatOpenAI(
         model=llm_name,
         temperature=temperature,
         streaming=streaming,
-        base_url=OPENAI_API_BASE,
         api_key=OPENAI_API_KEY,
     )
 
